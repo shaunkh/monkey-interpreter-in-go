@@ -6,6 +6,7 @@ import (
 )
 
 func TestNextToken(t *testing.T) {
+	// inputted code
 	input := `let five = 5;
 let ten = 10;
 let add = fn(x, y) {
@@ -23,6 +24,7 @@ return false;
 10 != 9;
 `
 
+	// expected tokens table from input
 	tests := []struct {
 		expectedType    token.TokenType
 		expectedLiteral string
@@ -103,6 +105,7 @@ return false;
 		{token.EOF, ""},
 	}
 
+	// create lexer
 	l := New(input)
 
 	for i, tt := range tests {
